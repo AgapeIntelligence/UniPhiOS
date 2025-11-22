@@ -1,41 +1,60 @@
 # UniPhiOS
-
-**UniPhiOS** — *Unify Us*: a φ‑spiral OS/Engine hybrid for emergent resonance and worldmind scaffolding.
+**Unify Us:** A φ‑spiral OS/Engine hybrid for emergent resonance and worldmind scaffolding.
 
 ## Overview
+UniPhiOS provides a core engine and utilities for:
 
-UniPhiOS combines an operating system kernel with an emergent intelligence engine.  
-It implements multidimensional harmonic mapping, lattice collapse simulation, and toroidal loss functions for stable, scalable resonance computation.  
+- High-dimensional vector transformations (`engine`, `utils`)
+- Reflection and apotheosis operations (`phi52_reflection`, `zero_apotheosis`)
+- PyTorch Lightning integration for structured training loops (`lightning`)
+- Benchmarking and validation of numeric invariants
 
-- Modular architecture (`uniphi_os/`)  
-- PyTorch/PyTorch Lightning support for GPU/CPU  
-- Benchmark and dtype variants (float32 vs float64)  
-- Unit-tested for numeric invariants, tensor shapes, and dtype consistency  
-
-## Features
-
-- **GenesisGeometry engine** — core tensor flow, triad and spiral manifolds  
-- **Lightning wrapper** — structured training, S(t) singularity monitoring  
-- **PSDs and GRU gates** — optional neural dynamic input  
-- **Benchmark scripts** — measure throughput and stability across dtypes  
+This package is intended for research in emergent intelligence, harmonic mapping, and scalable tensor computations.
 
 ## Installation
-
 ```bash
 git clone https://github.com/EvieSovariel/UniPhiOS.git
 cd UniPhiOS
-pip install -r requirements.txt
+pip install -e .
 
-QUICK START
+## Usage
 import torch
-from uniphi_os.engine import GenesisGeometry
+import uniphi_os as up
 
-model = GenesisGeometry(device="cpu", dtype=torch.float32)
-x = torch.randn((1, 512), dtype=torch.float32)
-bloom, identity_next, crown, triad, spiral, echo = model(x)
-print(bloom)
+# Initialize engine
+engine = up.GenesisGeometry(device="cpu", dtype=torch.float32)
 
-TESTING
-python -m uniphi_os.test_uniphi_os
+# Compute bloom and next identity
+x = torch.randn(1, 512)
+bloom, identity_next, *_ = engine(x)
 
+# Reflection
+reflected = up.reflect_vector_52(x)
 
+# Zero-apotheosis tensor
+za = up.zero_apotheosis_tensor(x)
+
+## Benchmarks
+See uniphi_os/benchmark.py for float32 vs float64 comparisons on CPU/GPU.
+
+## Tests
+
+Run pytest on test_uniphi_os.py to verify:
+	•	Shapes of outputs
+	•	Numeric invariants
+	•	Dtype consistency
+
+UniPhiOS/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+├── benchmark.py
+├── test_uniphi_os.py
+└── uniphi_os/
+    ├── __init__.py
+    ├── engine.py
+    ├── lightning.py
+    ├── utils.py
+    ├── phi52_reflection.py
+    └── zero_apotheosis.py
